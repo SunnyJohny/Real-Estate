@@ -108,6 +108,7 @@ export default function CreateListing() {
       geolocation.lat = latitude;
       geolocation.lng = longitude;
     }
+    console.log(setGeolocationEnabled);
 
     async function storeImage(image) {
       return new Promise((resolve, reject) => {
@@ -129,6 +130,10 @@ export default function CreateListing() {
                 break;
               case "running":
                 console.log("Upload is running");
+                break;
+              default:
+                // Handle unexpected states here
+                console.log("Unexpected upload state");
                 break;
             }
           },
