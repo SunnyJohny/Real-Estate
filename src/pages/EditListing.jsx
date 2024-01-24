@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
+// import {
+//   getStorage,
+//   ref,
+//   uploadBytesResumable,
+//   getDownloadURL,
+// } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 import {
@@ -57,10 +57,13 @@ export default function CreateListing() {
     discountedPrice,
     latitude,
     longitude,
-    images,
+    // images,
   } = formData;
 
   const params = useParams();
+console.log(setGeolocationEnabled);
+console.log(uuidv4);
+
 
   useEffect(() => {
     if (listing && listing.userRef !== auth.currentUser.uid) {
@@ -145,50 +148,50 @@ export default function CreateListing() {
       geolocation.lng = longitude;
     }
 
-    async function storeImage(image) {
-      return new Promise((resolve, reject) => {
-        const storage = getStorage();
-        const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
-        const storageRef = ref(storage, filename);
-        const uploadTask = uploadBytesResumable(storageRef, image);
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            // Observe state change events such as progress, pause, and resume
-            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log("Upload is " + progress + "% done");
-            switch (snapshot.state) {
-              case "paused":
-                console.log("Upload is paused");
-                break;
-              case "running":
-                console.log("Upload is running");
-                break;
-              default:
-                console.log("Unhandled upload state");
-                console.log(setGeolocationEnabled);
+    // async function storeImage(image) {
+    //   return new Promise((resolve, reject) => {
+    //     const storage = getStorage();
+    //     const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
+    //     const storageRef = ref(storage, filename);
+    //     const uploadTask = uploadBytesResumable(storageRef, image);
+    //     uploadTask.on(
+    //       "state_changed",
+    //       (snapshot) => {
+    //         // Observe state change events such as progress, pause, and resume
+    //         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+    //         const progress =
+    //           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //         console.log("Upload is " + progress + "% done");
+    //         switch (snapshot.state) {
+    //           case "paused":
+    //             console.log("Upload is paused");
+    //             break;
+    //           case "running":
+    //             console.log("Upload is running");
+    //             break;
+    //           default:
+    //             console.log("Unhandled upload state");
+    //             console.log(setGeolocationEnabled);
 
                 
-                break;
-            }
+    //             break;
+    //         }
             
-          },
-          (error) => {
-            // Handle unsuccessful uploads
-            reject(error);
-          },
-          () => {
-            // Handle successful uploads on complete
-            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-              resolve(downloadURL);
-            });
-          }
-        );
-      });
-    }
+    //       },
+    //       (error) => {
+    //         // Handle unsuccessful uploads
+    //         reject(error);
+    //       },
+    //       () => {
+    //         // Handle successful uploads on complete
+    //         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+    //         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+    //           resolve(downloadURL);
+    //         });
+    //       }
+    //     );
+    //   });
+    // }
 
     // const imgUrls = await Promise.all(
     //   [...images].map((image) => storeImage(image))

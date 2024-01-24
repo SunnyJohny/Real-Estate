@@ -1,6 +1,6 @@
 import {
   collection,
-  getDoc,
+  // getDoc,
   getDocs,
   limit,
   orderBy,
@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ListingItem from "../components/ListingItem";
-import Slider from "../components/Slider";
+// import Slider from "../components/Slider";
 import { db } from "../firebase";
 
 export default function Home() {
