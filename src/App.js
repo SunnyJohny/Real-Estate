@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
@@ -20,7 +22,7 @@ import ServicePage from "./pages/Services";
 import CareerPage from "./pages/Career";
 import PaymentForm from "./components/PaymentForm";
 
-
+const stripePromise = loadStripe('your_stripe_public_key'); // Replace with your actual Stripe public key
 function App() {
   return (
     <>
@@ -35,7 +37,9 @@ function App() {
           <Route path="/contact-page" element={<ContactPage />} />
           <Route path="/services" element={<ServicePage />} />
           <Route path="/career" element={<CareerPage />} />
-          <Route path="/paymentForm" element={<PaymentForm />} />
+          {/* <Route path="/paymentForm" element={<CareerPage />} /> */}
+
+          <Route path="/paymentForm" element={<Elements stripe={stripePromise}><PaymentForm /></Elements>} />
 
 
 

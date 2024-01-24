@@ -114,12 +114,8 @@ export default function Listing() {
   <p className="bg-red-800 w-full max-w-[300px] rounded-md p-1 text-white text-center font-semibold shadow-md">
     {listing.type === "rent" ? "Rent" : listing.type}
   </p>
-  {/* {listing.offer && (
-    <p className="w-[150px] max-w-[300px] bg-green-800 rounded-md p-1 text-white text-center font-semibold shadow-md">
-      ₦{+listing.regularPrice - +listing.discountedPrice} discount
-    </p>
-  )} */}
-             <p className="bg-blue-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
+  
+            <p className="bg-blue-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
               <Link to="/paymentForm">Pay</Link>
             </p>
 
