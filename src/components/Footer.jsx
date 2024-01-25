@@ -49,7 +49,6 @@ const Footer = () => {
               <li>
                 <a href="/">Home</a>
               </li>
-             
               <li>
                 <a href="/about">About Us</a>
               </li>
@@ -59,7 +58,7 @@ const Footer = () => {
               <li>
                 <a href="/contact">Contact</a>
               </li>
-               <li>
+              <li>
                 <a href="/properties">Properties</a>
               </li>
             </ul>
@@ -67,28 +66,28 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-          <h2 className="text-xl font-bold mb-4">Follow Us</h2>
-          <div className="flex space-x-4">
-            {socialMediaLinks.map((socialMedia, index) => (
-              <a
-                key={index}
-                href={socialMedia.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white"
-              >
-                {socialMedia.icon}
-              </a>
-            ))}
+            <h2 className="text-xl font-bold mb-4">Follow Us</h2>
+            <div className="flex space-x-4">
+              {socialMediaLinks.map((socialMedia, index) => (
+                <a
+                  key={index}
+                  href={socialMedia.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  {socialMedia.icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="mt-8 border-t border-gray-600 pt-4 text-center">
         <p className="text-sm">
-          &copy; {new Date().getFullYear()} Imoni Properties LTD. All rights reserved.
+          &copy; {new Date().getFullYear()} IMONI PROPERTIES LTD- RC : 1737619. All rights reserved.
         </p>
       </div>
     </footer>

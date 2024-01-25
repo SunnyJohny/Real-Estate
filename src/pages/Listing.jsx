@@ -111,9 +111,10 @@ export default function Listing() {
             {listing.address}
           </p>
           <div className="flex justify-start items-center space-x-8 w-[75%]">
-  <p className="bg-red-800 w-full max-w-[300px] rounded-md p-1 text-white text-center font-semibold shadow-md">
-    {listing.type === "rent" ? "Rent" : listing.type}
-  </p>
+          <p className="bg-red-800 w-full max-w-[300px] rounded-md p-1 text-white text-center font-semibold shadow-md" style={{ whiteSpace: 'nowrap' }}>
+  {listing.type === "rent" ? "Rent" : listing.type}
+</p>
+
   
             <p className="bg-blue-800 w-full max-w-[200px] rounded-md p-1 text-white text-center font-semibold shadow-md">
               <Link to="/paymentForm">Pay</Link>

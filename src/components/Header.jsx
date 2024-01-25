@@ -30,20 +30,19 @@ export default function Header() {
   return (
     <div className="bg-white border-b shadow-sm sticky top-0 z-40">
       <header className="flex justify-between items-center px-2 max-w-6xl mx-auto">
-        <div className="flex items-center mt-2">
-          <img
-            src={process.env.PUBLIC_URL + '/imoniLogo.png'}
-            alt="logo"
-            className="w-6 h-6 cursor-pointer sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 xl:w-16 xl:h-16"
-            onClick={() => navigate("/")}
-          />
-          <img
-            src={process.env.PUBLIC_URL + '/imoniBizName.png'}
-            alt="company name"
-            className="w-32 h-10 cursor-pointer sm:w-40 sm:h-14 md:w-48 md:h-16 lg:w-56 lg:h-18 xl:w-72 xl:h-20 mt--4"
-            onClick={() => navigate("/")}
-          />
-        </div>
+      <div className="flex items-center mt-2">
+  <div
+    onClick={() => navigate("/")}
+    className="w-6 h-6 rounded-full bg-pink-500 flex items-center justify-center cursor-pointer mr-1 mb-2"
+    style={{ fontStyle: 'italic', color: 'white', fontSize: '1.5rem', fontWeight: 'bold' }}
+  >
+    i
+  </div>
+
+  <div className="text-base font-semibold text-blue-800" style={{ fontFamily: 'serif', fontSize: '1rem', marginLeft: '0.2rem' }}>
+    IMONI PROPERTIES LTD
+  </div>
+</div>
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
